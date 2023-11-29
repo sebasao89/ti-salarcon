@@ -17,7 +17,7 @@ export class ProductComponent {
   @Output() addToCard = new EventEmitter()
   
   addToCardHandler() {
-    this.addToCard.emit('Hola mensaje desde component product' + this.title)
+    this.addToCard.emit('Hola mensaje desde component product - ' + this.title)
   }
 
 

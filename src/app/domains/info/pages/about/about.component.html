@@ -1,0 +1,11 @@
+<p>
+    <input type="number" class="border" [value]="duration()" (change)="changeDuration($event)">
+</p>
+<p>
+    <input type="text" class="border" [value]="message()" (change)="changeMessage($event)">
+</p>
+<p>
+    {{duration()}} - {{message()}}
+</p>
+
+<app-counter [duration]="duration()" [message]="message()"></app-counter>

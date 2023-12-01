@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // COMPONENTS
+import { HeaderComponent } from "../../../shared/components/header/header.component";
 import { ProductComponent } from "../../components/product/product.component";
 
 // MODELS
@@ -13,7 +14,7 @@ import { Product } from "../../../shared/models/product.model";
     standalone: true,
     templateUrl: './list.component.html',
     styleUrl: './list.component.css',
-    imports: [CommonModule, ProductComponent]
+    imports: [CommonModule, ProductComponent, HeaderComponent]
 })
 export class ListComponent {
 

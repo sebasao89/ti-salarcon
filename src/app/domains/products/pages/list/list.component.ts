@@ -18,11 +18,11 @@ import { Product } from "../../../shared/models/product.model";
 export class ListComponent {
 
     products = signal<Product[]>([
-        { id: 1, title: "Product 1", price: 100, image: 'https://picsum.photos/640/640?r=' + Math.random() },
-        { id: 2, title: "Product 2", price: 200, image: 'https://picsum.photos/640/640?r=' + Math.random() },
-        { id: 3, title: "Product 3", price: 300, image: 'https://picsum.photos/640/640?r=' + Math.random() },
-        { id: 4, title: "Product 4", price: 400, image: 'https://picsum.photos/640/640?r=' + Math.random() },
-        { id: 5, title: "Product 5", price: 500, image: 'https://picsum.photos/640/640?r=' + Math.random() },
+        { id: Date.now(), title: "Product 1", price: 100, image: 'https://picsum.photos/640/640?r=' + Math.random(), creationAt: new Date().toISOString() },
+        { id: Date.now(), title: "Product 2", price: 200, image: 'https://picsum.photos/640/640?r=' + Math.random(), creationAt: new Date().toISOString() },
+        { id: Date.now(), title: "Product 3", price: 300, image: 'https://picsum.photos/640/640?r=' + Math.random(), creationAt: new Date().toISOString() },
+        { id: Date.now(), title: "Product 4", price: 400, image: 'https://picsum.photos/640/640?r=' + Math.random(), creationAt: new Date().toISOString() },
+        { id: Date.now(), title: "Product 5", price: 500, image: 'https://picsum.photos/640/640?r=' + Math.random(), creationAt: new Date().toISOString() },
     ])
 
     imgs: string = "https://picsum.photos/640/640?r=" + Math.random()

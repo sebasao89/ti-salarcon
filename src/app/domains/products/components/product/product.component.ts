@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Product } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -10,14 +11,16 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductComponent {
 
-  @Input() img: string = ""
-  @Input({required: true}) title: string = ""
-  @Input() price: number = 0
+  // @Input() img: string = ""
+  // @Input({required: true}) title: string = ""
+  // @Input() price: number = 0
+
+  @Input({required: true}) product!: Product
 
   @Output() addToCard = new EventEmitter()
   
   addToCardHandler() {
-    this.addToCard.emit('Hola mensaje desde component product - ' + this.title)
+    this.addToCard.emit('Hola mensaje desde component product - ' + this.product.title)
   }
 
 

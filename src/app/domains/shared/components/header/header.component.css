@@ -1,3 +1,7 @@
 li, button{
     cursor: pointer;
 }
+
+#sideCard {
+    animation: slide-in 2s ease-in-out;
+}

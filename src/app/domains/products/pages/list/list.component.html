@@ -1,15 +1,16 @@
 <div class="overflow-hidden">
     <div class="w-full fixed top-0 z-3">
         <div class="container mx-3 md:mx-auto">
-            <app-header></app-header>
+            <app-header [cart]="cart()"></app-header>
+            <!-- <h3>{{ cart().length }}</h3> -->
         </div>
     </div>
     
     <div class="container mx-3 md:mx-auto">   
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-5 mt-20">
             @for (product of products(); track $index) {
-            <app-product [product]="product" (addToCard)="fromChild($event)">
-            </app-product>
+                <app-product [product]="product" (addToCard)="addToCart($event)">
+                </app-product>
             }
         </div>
     </div>

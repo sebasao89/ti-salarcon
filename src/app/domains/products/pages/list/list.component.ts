@@ -28,9 +28,12 @@ export class ListComponent {
 
     imgs: string = "https://picsum.photos/640/640?r=" + Math.random()
 
+    cart = signal<Product[]> ([])
 
-    fromChild(event: string) {
-        console.log(event)
+
+    addToCart(product: Product) {
+        // console.log(event)
+        this.cart.update(prevState => [...prevState, product])
     }
 
 }

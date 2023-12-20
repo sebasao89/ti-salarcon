@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, Input, SimpleChange, SimpleChanges, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-header',
@@ -10,20 +11,33 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
 
-  hideSideCard = signal(true)
+  hideSideCart = signal(true)
+  @Input({required: true}) cart: Product[] = []
+  totalPrice = signal(0)
 
-  // openSideCard() {
-  //   const sideCard = document.querySelector('#sideCard')
-  //   sideCard?.classList.remove('translate-x-full')
+  // openSideCart() {
+  //   const sideCart = document.querySelector('#sideCart')
+  //   sideCart?.classList.remove('translate-x-full')
   // }
 
-  // closeSideCard() {
-  //   const sideCard = document.querySelector('#sideCard')
-  //   sideCard?.classList.add('translate-x-full')
+  // closeSideCart() {
+  //   const sideCart = document.querySelector('#sideCart')
+  //   sideCart?.classList.add('translate-x-full')
   // }
 
-  toogleSideCard() {
-    this.hideSideCard.update(prevState => !prevState)
+  toogleSideCart() {
+    this.hideSideCart.update(prevState => !prevState)
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const cart = changes['cart']
+    if (cart) {
+      this.totalPrice.set(this.calcPrice())
+    }
+  }
+
+  calcPrice() {
+    return this.cart.reduce((total, product) => total + product.price, 0);
   }
 
 

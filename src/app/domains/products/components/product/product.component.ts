@@ -20,7 +20,7 @@ export class ProductComponent {
   @Output() addToCard = new EventEmitter()
   
   addToCardHandler() {
-    this.addToCard.emit('Hola mensaje desde component product - ' + this.product.title)
+    this.addToCard.emit(this.product)
   }
 
 

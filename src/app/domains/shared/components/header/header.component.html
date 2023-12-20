@@ -1,4 +1,4 @@
-<nav class="grid grid-cols-3 items-center h-12 mx-8 border">
+<nav class="grid grid-cols-3 items-center h-12 border">
     <div class="">
         <h1 class="font-bold text-lg">SALARCON IT</h1>
     </div>
@@ -10,7 +10,7 @@
         </ul>
     </div>
     <div class="flex justify-end">
-        <button (click)="openSideCard()">
+        <button (click)="toogleSideCard()">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                 data-slot="icon" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -20,11 +20,11 @@
     </div>
 </nav>
 
-<div id="sideCard" class="flex absolute top-0 right-0 h-screen translate-x-full transition duration-300 ease-in-out">
+<div id="sideCard" class="flex absolute top-0 right-0 h-screen transition duration-300 ease-in-out" [class.translate-x-full]="hideSideCard()">
     <aside class="bg-gray-600 text-white w-64 flex-shrink-0">
         <div class="flex justify-between items-center py-4 px-6">
             <h1 class="text-2xl font-bold">My card</h1>
-            <button (click)="closeSideCard()">
+            <button (click)="toogleSideCard()">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" data-slot="icon" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"

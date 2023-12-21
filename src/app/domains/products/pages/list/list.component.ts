@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // COMPONENTS
@@ -7,6 +7,7 @@ import { ProductComponent } from "../../components/product/product.component";
 
 // MODELS
 import { Product } from "../../../shared/models/product.model";
+import { CartService } from '../../../shared/services/cart.service';
 
 
 @Component({
@@ -28,12 +29,14 @@ export class ListComponent {
 
     imgs: string = "https://picsum.photos/640/640?r=" + Math.random()
 
-    cart = signal<Product[]> ([])
+    private cartService = inject(CartService)
+
+    // cart = signal<Product[]> ([])
 
 
     addToCart(product: Product) {
         // console.log(event)
-        this.cart.update(prevState => [...prevState, product])
+        this.cartService.addProduct(product)
     }
 
 }

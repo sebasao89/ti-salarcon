@@ -13,18 +13,22 @@ import { Observable } from 'rxjs';
 export class ProductService {
 
   private http = inject(HttpClient)
-  apiKey = environment.apiKey
+  // apiKey = environment.apiKey
+
+
+
 
   getProducts(): Observable<Product[]> {
-
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'apikey': this.apiKey // Asegúrate de usar el nombre del encabezado correcto para tu token de Supabase
-      })
+    const headers = {
+        apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54ZnVwbmV5cXJ5dW1lZWdkaG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDQ0NzM5NzUsImV4cCI6MjAyMDA0OTk3NX0.S1xch-67ER3CAsRQyvW4G3lSENA1ZKPFibwfb3lmI40',
+        autorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54ZnVwbmV5cXJ5dW1lZWdkaG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDQ0NzM5NzUsImV4cCI6MjAyMDA0OTk3NX0.S1xch-67ER3CAsRQyvW4G3lSENA1ZKPFibwfb3lmI40'
     };
 
-    const productsUrl = `${environment.supabaseUrl}/products?select=*`;
-    return this.http.get<Product[]>(productsUrl, httpOptions);
+    const params = {
+        select: '*'
+      }
+
+    const productsUrl = 'https://nxfupneyqryumeegdhoe.supabase.co/products';
+    return this.http.get<Product[]>(productsUrl, { headers, params})
   }
 }

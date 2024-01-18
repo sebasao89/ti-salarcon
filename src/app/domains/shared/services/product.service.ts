@@ -12,12 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  // private http = inject(HttpClient)
-  
-  constructor(private http: HttpClient){
-    
-  }
-
+  private http = inject(HttpClient)
 
   getProducts(): Observable<Product[]> {
     const headers = {

@@ -1,13 +1,16 @@
-<p>
-    <input type="number" class="border" [value]="duration()" (change)="changeDuration($event)">
-</p>
-<p>
-    <input type="text" class="border" [value]="message()" (change)="changeMessage($event)">
-</p>
-<p>
-    {{duration()}} - {{message()}}
-</p>
+<div class="mt-20">
+    <p>
+        <input type="number" class="border" [value]="duration()" (change)="changeDuration($event)">
+    </p>
+    <p>
+        <input type="text" class="border" [value]="message()" (change)="changeMessage($event)">
+    </p>
+    <p>
+        {{duration()}} - {{message()}}
+    </p>
 
-@if (duration() > 0) {
+    @if (duration() > 0) {
     <app-counter [duration]="duration()" [message]="message()"></app-counter>
-}
+    }
+
+</div>

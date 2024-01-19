@@ -1,10 +1,12 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, inject } from '@angular/core';
 
 @Directive({
-  selector: '[appHighlight]',
+  selector: '[Highlight]',
   standalone: true
 })
 export class HighlightDirective {
+
+  element = inject(ElementRef)
 
   constructor() { }
 

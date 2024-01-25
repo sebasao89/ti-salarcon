@@ -1,5 +1,7 @@
 <div class="rounded shadow">
-    <img class="w-full" [src]="product.image" alt="Sunset in the mountains">
+    <a [routerLink]="['/products/', product.id]" routerLinkActive="router-link-active" >
+        <img class="w-full" [src]="product.image" alt="Sunset in the mountains">
+    </a>
     <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">{{ product.name }}</div>
         <div class="text-sm mb-2">{{ product.created_at | date }}</div>

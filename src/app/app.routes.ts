@@ -3,6 +3,8 @@ import { ListComponent } from './domains/products/pages/list/list.component';
 import { AboutComponent } from './domains/info/pages/about/about.component';
 import { NoFoundComponent } from './domains/info/pages/no-found/no-found.component';
 import { LayoutComponent } from './domains/shared/components/layout/layout.component';
+import { HomeComponent } from './domains/home/pages/home/home.component';
+
 
 export const routes: Routes = [
     {
@@ -11,6 +13,10 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
+                component: HomeComponent
+            },
+            {
+                path: 'products',
                 component: ListComponent
             },
             {

@@ -6,6 +6,7 @@ import { Product } from '../models/product.model';
 })
 export class CartService {
 
+  hideSideCart = signal(true)
   cart = signal<Product[]>([])
   
   total = computed( () => {
@@ -14,6 +15,10 @@ export class CartService {
   })
 
   constructor() { }
+
+  toogleSideCart() {
+    this.hideSideCart.update(prevState => !prevState)
+  }
 
   addProduct(product: Product) {
     this.cart.update(state => [...state, product])

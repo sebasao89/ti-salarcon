@@ -1,10 +1,12 @@
-<div class="overflow-x-hidden">
-    <div class="w-full fixed top-0 z-3">
-        <div class="container mx-3 md:mx-auto">
+<div class="relative overflow-x-hidden">
+    <div class="container mx-auto">
+        <div class="">
             <app-header></app-header>
         </div>
-        <div class="container mx-3 md:mx-auto">
+        <div class="mt-5">
             <router-outlet></router-outlet>
         </div>
     </div>
+    
+    <app-slide-cart></app-slide-cart>
 </div>

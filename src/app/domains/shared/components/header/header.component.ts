@@ -1,8 +1,8 @@
 import { Component, Input, SimpleChange, SimpleChanges, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -13,30 +13,17 @@ import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
 
-  hideSideCart = signal(true)
   // @Input({required: true}) cart: Product[] = []
 
   private cartService = inject(CartService)
+
+  hideSideCart = this.cartService.hideSideCart
   cart = this.cartService.cart
   totalPrice = this.cartService.total
 
-   toogleSideCart() {
-    this.hideSideCart.update(prevState => !prevState)
+  toogleSideCart() {
+    this.cartService.toogleSideCart()
   }
-
-
-
-  // ngOnChanges(changes: SimpleChanges) {
-  //   const cart = changes['cart']
-  //   if (cart) {
-  //     this.totalPrice.set(this.calcPrice())
-  //   }
-  // }
-
-  // calcPrice() {
-  //   return this.cart.reduce((total, product) => total + product.price, 0);
-  // }
-
 
 
 }

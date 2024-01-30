@@ -1,6 +1,6 @@
-<div class="grid grid-cols-1 lg:grid-cols-4 gap-7">
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7">
     @for (product of products(); track $index) {
-    <app-product [product]="product" (addToCard)="addToCart($event)">
-    </app-product>
+        <app-product [product]="product" (addToCard)="addToCart($event)">
+        </app-product>
     }
 </div>

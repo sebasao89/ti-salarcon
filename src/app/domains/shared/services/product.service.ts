@@ -27,8 +27,11 @@ export class ProductService {
     return this.http.get<Product[]>(this.productsUrl, { headers: this.headers, params })
   }
 
-  getOne() {
-
+  getOne(id: string) {
+    const params = {
+      id: `eq.${id}`
+    }
+    return this.http.get<Product>(this.productsUrl, { headers: this.headers, params })
   }
 
 }

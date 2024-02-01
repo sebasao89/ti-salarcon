@@ -32,6 +32,7 @@ export class ListComponent {
     ngOnInit() {
         this.productService.getProducts().subscribe({
             next: (products) => {
+                console.log(products)
                 this.products.set(products)
             },
             error: () => {

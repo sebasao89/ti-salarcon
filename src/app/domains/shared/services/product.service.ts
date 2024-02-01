@@ -14,20 +14,21 @@ export class ProductService {
 
   private http = inject(HttpClient)
   private productsUrl = 'https://nxfupneyqryumeegdhoe.supabase.co/rest/v1/products'
-  headers = {
+  private headers = {
     apikey: environment.apikey,
     authorization: environment.authorization
   }
 
-  getProducts(): Observable<Product[]> {
 
+  getProducts(): Observable<Product[]> {
     const params = {
       select: '*'
     }
     return this.http.get<Product[]>(this.productsUrl, { headers: this.headers, params })
   }
 
-  getOne(id: string) {
+
+  getOne(id: string): Observable<Product> {
     const params = {
       id: `eq.${id}`
     }

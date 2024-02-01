@@ -19,14 +19,15 @@ export class ProductDetailComponent {
 
   ngOnInit() {
     if (this.id) {
-      this.productService.getOne(this.id).subscribe(
-        {
-          next: (product) => {
-            console.log(product);
-            this.product.set(product)
-          },
+      this.productService.getOne(this.id).subscribe({
+        next: (product) => {
+          console.log(product)
+          this.product.set(product)
+        },
+        error: () => {
+          console.error(Error)
         }
-      )
+      })
     }
   }
 

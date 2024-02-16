@@ -10,7 +10,7 @@ import { ProductDetailComponent } from './domains/products/pages/product-detail/
 export const routes: Routes = [
     {
         path: '',
-        component: LayoutComponent,
+        loadComponent: () => import('./domains/shared/components/layout/layout.component').then(m => m.LayoutComponent),
         children: [
             {
                 path: '',
@@ -18,11 +18,19 @@ export const routes: Routes = [
             },
             {
                 path: 'products',
-                component: ListComponent
-            },
-            {
-                path: 'products/:id',
-                component: ProductDetailComponent
+                loadComponent: () => import('./domains/products/pages/layout-product/layout-product.component').then(m => m.LayoutProductComponent),
+                children: [
+                    {
+                        path: ':id',
+                        title: 'Products id',
+                        component: ProductDetailComponent
+                    },
+                    {
+                        path: '',
+                        title: 'Products home',
+                        component: ListComponent
+                    },
+                ]
             },
             {
                 path: 'about',

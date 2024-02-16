@@ -1,6 +1,6 @@
 <article class="flex flex-col h-full rounded shadow">
     <div class="px-4 py-6">
-        <a [routerLink]="['/products/', product.id]" routerLinkActive="router-link-active" >
+        <a [routerLink]="['/products', product.id]" routerLinkActive="router-link-active" >
             <img class="mx-auto" [src]="product.image" [alt]="product.name">
         </a>
         <div class="font-bold text-base my-2">{{ product.name | slice:0:30 }}</div>

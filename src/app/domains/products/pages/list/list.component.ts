@@ -9,6 +9,7 @@ import { ProductComponent } from "../../components/product/product.component";
 import { Product } from "../../../shared/models/product.model";
 import { CartService } from '../../../shared/services/cart.service';
 import { ProductService } from '../../../shared/services/product.service';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { ProductService } from '../../../shared/services/product.service';
     standalone: true,
     templateUrl: './list.component.html',
     styleUrl: './list.component.css',
-    imports: [CommonModule, ProductComponent, HeaderComponent]
+    imports: [CommonModule, RouterModule, ProductComponent, HeaderComponent]
 })
 export class ListComponent {
 
